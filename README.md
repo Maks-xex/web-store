@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Web-store
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+This project is a web application built with **React** for the frontend. It includes scripts for development and building the application. This **README** provides instructions on how to set up and use the project.
+
+---
+
+## Requirements
+
+- **Node.js**: Version 20.19.0
+
+## Usage
+
+1. Start the development server using the npm `start` command.
+2. Access the application in your web browser at [http://localhost:3000](http://localhost:3000).
+3. Begin developing your project by editing the source files in the `src` directory.
+
+---
+
+## Scripts
+
+This project includes several npm scripts defined in the `package.json` file. Here are some of the key scripts you can use:
+
 ## Available Scripts
 
-In the project directory, you can run:
+In this project, you can run the following commands using npm run `<script-name>` or yarn `<script-name>` (if you're using Yarn).
 
-### `npm start`
+- ### `build`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  Runs the build process using `react-scripts`. This command bundles the app into static files for production. It minimizes and optimizes the JavaScript, CSS, and other assets. The build output will be saved in the `build/` directory .
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  ```bash
+  npm run build
+  ```
 
-### `npm test`
+- ### `start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  Starts the development server using `react-scripts`. It enables hot-reloading, so changes to your files will be reflected in real-time without needing to manually refresh the browser.
 
-### `npm run build`
+  ```bash
+  npm start
+  ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### `test`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  Runs the tests once using `react-scripts` in non-watch mode. This is useful for checking that everything is working correctly before deployment or commits. It doesn't watch for changes after running the tests.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ```bash
+  npm run test
+  ```
 
-### `npm run eject`
+- ### `eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  Ejects the project from `create-react-app`. This gives you full control over the Webpack configuration, Babel settings, and other build-related tools. Note: This operation is irreversible.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```bash
+  npm run eject
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- ### `prepare`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  Installs Husky hooks. Husky is used to enforce git hooks such as running linting or tests before commits or pushes. This command prepares the git hooks to ensure quality control on code.
 
-## Learn More
+  ```bash
+  npm run prepare
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ### `lint:check`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Runs ESLint on all TypeScript files (`.ts` and `.tsx`) in the `src/` directory to check for code quality and style issues based on the configured rules.
+
+  ```bash
+  npm run lint:check
+  ```
+
+- ### `format`
+
+  Runs Prettier to automatically format all the code in your project according to the Prettier configuration. This helps ensure consistent code style across the project.
+
+  ```bash
+  npm run format
+  ```
+
+- ### `format:check`
+
+  Checks if the code is formatted according to Prettier's rules without actually modifying any files. It can be used to ensure that all code adheres to the formatting rules before committing.
+
+  ```bash
+  npm run format:check
+  ```
+
+- ### `stylelint:check`
+
+  Runs Stylelint on all CSS and SCSS files to check for style violations based on the configured rules. It's used to enforce consistency in stylesheets.
+
+  ```bash
+  npm run stylelint:check
+  ```
