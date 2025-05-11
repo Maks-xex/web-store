@@ -5,7 +5,7 @@ export interface ICartItem extends IProducts {
   quantity: number;
 }
 
-interface CartContextType {
+interface CartContext {
   cartItems: ICartItem[];
   total: number;
   addToCart: (product: IProducts) => void;
@@ -14,7 +14,7 @@ interface CartContextType {
   decrementQuantity: (id: number) => void;
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartContext | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
