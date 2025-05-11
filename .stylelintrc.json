@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-scss",
+    "stylelint-config-tailwindcss"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z0-9]+(__([a-z0-9]+))?(--[a-z0-9]+)?$",
+      {
+        "message": "Selector class name should follow BEM convention (e.g., block__element--modifier)."
+      }
+    ]
+  }
+}
