@@ -1,10 +1,6 @@
 import products from "../products/products.json";
 
-export type IProduct = {
-  id: number;
-  name: string;
-  price: number;
-};
+import { IProduct } from "../types";
 
 export const getProducts = (): IProduct[] => {
   return products.map((product) => ({

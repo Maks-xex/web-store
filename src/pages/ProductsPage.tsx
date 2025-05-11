@@ -2,9 +2,11 @@ import { ProductList } from "../components/ProductList";
 
 import { useCartContext } from "../context/CartContext";
 
+import { getProducts } from "../utils/getProducts";
+
 import { IProduct } from "../types";
 
-import products from "../products/products.json";
+const products = getProducts();
 
 export const ProductsPage = () => {
   const { addToCart } = useCartContext();

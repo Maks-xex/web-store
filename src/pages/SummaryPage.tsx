@@ -4,8 +4,6 @@ import { useCartContext } from "../context/CartContext";
 
 import { ProductList } from "../components/ProductList";
 
-import { getProducts } from "../utils/getProducts";
-
 import { ICartItem } from "../types";
 
 export const SummaryPage = () => {
@@ -18,22 +16,17 @@ export const SummaryPage = () => {
     localStorage.setItem("order", JSON.stringify(orderData));
     window.location.href = "confirmation.html";
   };
-  const allProducts = getProducts();
 
-  const getProductById = (id: number) => allProducts.find((p) => p.id === id);
   return (
     <div className="mt-2 mx-auto w-fit">
       <h2 className="font-bold uppercase">Podsumowanie Zamówienia</h2>
       <ProductList<ICartItem>
         products={cartItems}
         renderAction={(item) => {
-          const product = getProductById(item.id);
-          if (!product) return null;
-
           return (
             <div>
               <p>Ilość: {item.quantity} szt.</p>
-              <p>Łącznie: {(product.price * item.quantity).toFixed(2)} PLN</p>
+              <p>Łącznie: {(item.price * item.quantity).toFixed(2)} PLN</p>
             </div>
           );
         }}
