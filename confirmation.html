@@ -6,38 +6,83 @@
     <title>Potwierdzenie Zamówienia</title>
     <style>
       body {
-        font-family: Arial;
+        font-family: Arial, sans-serif;
         padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 20px;
       }
       li {
-        margin-bottom: 5px;
+        margin-bottom: 6px;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 16px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+      .empty {
+        color: #a00;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <h1>Zamówienie złożone pomyślnie!</h1>
-    <h2>Podsumowanie zamówienia:</h2>
-    <ul id="order-summary"></ul>
-    <h3 id="total"></h3>
-    <a href="/web-store" onclick="localStorage.removeItem('order');"
-      >Wróć do listy produktów</a
-    >
+    <h1 id="main-title">Zamówienie złożone pomyślnie!</h1>
+    <div id="content">
+      <h2 id="summary-heading">Podsumowanie zamówienia:</h2>
+      <ul id="order-summary"></ul>
+      <h3 id="total"></h3>
+      <a
+        href="/web-store"
+        class="btn"
+        id="back-link"
+        onclick="localStorage.removeItem('order');"
+      >Wróć do listy produktów</a>
 
     <script>
       const order = JSON.parse(localStorage.getItem("order"));
       const summaryEl = document.getElementById("order-summary");
       const totalEl = document.getElementById("total");
+      const titleEl = document.getElementById("main-title");
+      const summaryHeading = document.getElementById("summary-heading");
+      const contentEl = document.getElementById("content");
+      const backLink = document.getElementById("back-link");
 
-      let total = 0;
-      order.items.forEach((item) => {
-        const price = item.price;
-        const subtotal = price * item.quantity;
-        total += subtotal;
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.quantity} x ${price.toFixed(2)} PLN = ${subtotal.toFixed(2)} PLN`;
-        summaryEl.appendChild(li);
-      });
-      totalEl.textContent = `Łączna kwota: ${total.toFixed(2)} PLN`;
+      if (order && order.items.length > 0) {
+        let total = 0;
+        order.items.forEach((item) => {
+          const price = item.price;
+          const subtotal = price * item.quantity;
+          total += subtotal;
+
+          const li = document.createElement("li");
+          li.textContent = `${item.name} - ${item.quantity} x ${price.toFixed(
+            2,
+          )} PLN = ${subtotal.toFixed(2)} PLN`;
+          summaryEl.appendChild(li);
+        });
+        totalEl.textContent = `Łączna kwota: ${total.toFixed(2)} PLN`;
+      } else {
+        titleEl.textContent = "❌ Nie udało się odnaleźć danych zamówienia";
+        summaryHeading.remove();
+        summaryEl.remove();
+        totalEl.remove();
+        // Show error message
+        const errorMsg = document.createElement("p");
+        errorMsg.textContent = "Brak danych zamówienia lub koszyk był pusty.";
+        errorMsg.className = "empty";
+        contentEl.insertBefore(errorMsg, backLink);
+      }
     </script>
   </body>
 </html>
