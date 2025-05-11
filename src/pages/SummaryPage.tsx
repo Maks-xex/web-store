@@ -45,10 +45,11 @@ export const SummaryPage = () => {
           Złóż Zamówienie
         </button>
         <br />
-        <Link to="/cart">
-          <button className="bg-red-500 hover:bg-red-700 rounded px-4 py-2">
-            Wróć do koszyka
-          </button>
+        <Link
+          className="bg-red-500 hover:bg-red-700 rounded px-4 py-2"
+          to="/cart"
+        >
+          Wróć do koszyka
         </Link>
       </div>
     </div>

@@ -56,15 +56,17 @@ export const Cart: React.FC = () => {
           />
           <h3>Łącznie: {total.toFixed(2)} PLN</h3>
           <div className="flex flex-row gap-2 items-center mt-3">
-            <Link to="/">
-              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                Wróć do listy produktów
-              </button>
+            <Link
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              to="/"
+            >
+              Wróć do listy produktów
             </Link>
-            <Link to="/summary">
-              <button className="bg-green-500 hover:bg-green-700 text-white rounded font-bold py-2 px-4 ">
-                Przejdź do podsumowania
-              </button>
+            <Link
+              className="bg-green-500 hover:bg-green-700 text-white rounded font-bold py-2 px-4 "
+              to="/summary"
+            >
+              Przejdź do podsumowania
             </Link>
           </div>
         </>
