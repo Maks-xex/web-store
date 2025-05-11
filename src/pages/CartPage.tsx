@@ -57,22 +57,24 @@ export const CartPage = () => {
             )}
           />
           <h3>Łącznie: {total.toFixed(2)} PLN</h3>
-          <div className="flex flex-row gap-2 items-center mt-3">
-            <Link
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-              to="/"
-            >
-              Wróć do listy produktów
-            </Link>
-            <Link
-              className="bg-green-500 hover:bg-green-700 text-white rounded font-bold py-2 px-4 "
-              to="/summary"
-            >
-              Przejdź do podsumowania
-            </Link>
-          </div>
         </>
       )}
+      <div className="flex flex-row gap-2 items-center mt-3">
+        <Link
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          to="/"
+        >
+          Wróć do listy produktów
+        </Link>
+        {cartItems.length !== 0 && (
+          <Link
+            className="bg-green-500 hover:bg-green-700 text-white rounded font-bold py-2 px-4 "
+            to="/summary"
+          >
+            Przejdź do podsumowania
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
