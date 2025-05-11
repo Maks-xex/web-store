@@ -19,7 +19,7 @@ interface ICartContext {
   decrementQuantity: (id: number) => void;
 }
 
-const CartContext = createContext<ICartContext | undefined>(undefined);
+const CartContext = createContext<ICartContext | null>(null);
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
