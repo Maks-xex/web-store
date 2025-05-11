@@ -1,11 +1,16 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  PropsWithChildren,
+} from "react";
 import { IProducts } from "../types";
 
 export interface ICartItem extends IProducts {
   quantity: number;
 }
 
-interface CartContext {
+interface ICartContext {
   cartItems: ICartItem[];
   total: number;
   addToCart: (product: IProducts) => void;
@@ -14,9 +19,9 @@ interface CartContext {
   decrementQuantity: (id: number) => void;
 }
 
-const CartContext = createContext<CartContext | undefined>(undefined);
+const ICartContext = createContext<ICartContext | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
 
   const addToCart = (product: IProducts) => {
@@ -68,7 +73,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <CartContext.Provider
+    <ICartContext.Provider
       value={{
         cartItems,
         total,
@@ -79,12 +84,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </CartContext.Provider>
+    </ICartContext.Provider>
   );
 };
 
 export const useCartContext = () => {
-  const context = useContext(CartContext);
+  const context = useContext(ICartContext);
   if (!context) {
     throw new Error("useCart must be used within a CartProvider");
   }
