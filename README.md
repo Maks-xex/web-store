@@ -1,6 +1,21 @@
-# Web-store
+# Maksym_Rekunenko_Web_Wrocław
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 👤 Personal Information
+
+- **Name**: Maksym Rekunenko
+- **Tech Stack**: HTML, CSS, JavaScript (React)
+- **Location**: Wrocław, Poland
+
+## 🌐 Live Demo
+
+[Click here to view the live application on GitHub Pages](https://maks-xex.github.io/web-store/)
+
+## 🛠️ Technologies Used
+
+- React (Create React App)
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- Git & GitHub Pages
 
 ## Description
 
