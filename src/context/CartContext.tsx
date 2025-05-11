@@ -19,7 +19,7 @@ interface ICartContext {
   decrementQuantity: (id: number) => void;
 }
 
-const ICartContext = createContext<ICartContext | undefined>(undefined);
+const CartContext = createContext<ICartContext | undefined>(undefined);
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
@@ -73,7 +73,7 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
   );
 
   return (
-    <ICartContext.Provider
+    <CartContext.Provider
       value={{
         cartItems,
         total,
@@ -84,12 +84,12 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
       }}
     >
       {children}
-    </ICartContext.Provider>
+    </CartContext.Provider>
   );
 };
 
 export const useCartContext = () => {
-  const context = useContext(ICartContext);
+  const context = useContext(CartContext);
   if (!context) {
     throw new Error("useCart must be used within a CartProvider");
   }
