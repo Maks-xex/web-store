@@ -7,6 +7,7 @@ export interface ICart extends IProducts {
 
 interface CartContextType {
   cartItems: ICart[];
+  total: number;
   addToCart: (product: IProducts) => void;
   removeFromCart: (id: number) => void;
   incrementQuantity: (id: number) => void;
@@ -60,10 +61,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     updateCartItemQuantity(id, -1);
   };
 
+  const total = cartItems.reduce(
+    (sum, item) =>
+      sum + (item.price.main + item.price.fractional / 100) * item.quantity,
+    0,
+  );
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
+        total,
         addToCart,
         removeFromCart,
         incrementQuantity,

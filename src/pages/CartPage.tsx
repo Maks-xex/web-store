@@ -5,14 +5,13 @@ import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";
 
 export const Cart: React.FC = () => {
-  const { cartItems, removeFromCart, incrementQuantity, decrementQuantity } =
-    useCartContext();
-
-  const total = cartItems.reduce(
-    (sum, item) =>
-      sum + (item.price.main + item.price.fractional / 100) * item.quantity,
-    0,
-  );
+  const {
+    total,
+    cartItems,
+    removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
+  } = useCartContext();
   return (
     <div className="flex justify-center items-center flex-col">
       {cartItems.length === 0 ? (

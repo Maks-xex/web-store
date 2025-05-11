@@ -3,17 +3,11 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
 
 export const SummaryPage = () => {
-  const { cartItems } = useCartContext();
-  const total = cartItems.reduce(
-    (sum, item) =>
-      sum + (item.price.main + item.price.fractional / 100) * item.quantity,
-    0,
-  );
-
+  const { cartItems, total } = useCartContext();
   const handleOrder = () => {
     const orderData = {
       items: cartItems,
-      total: total,
+      total,
     };
     localStorage.setItem("order", JSON.stringify(orderData));
     window.location.href = "/confirmation.html";
@@ -32,8 +26,10 @@ export const SummaryPage = () => {
                 {item.name} - {item.quantity} x{" "}
                 {(item.price.main + item.price.fractional / 100).toFixed(2)} PLN
                 ={" "}
-                {(item.price.main + item.price.fractional / 100) *
-                  item.quantity}{" "}
+                {(
+                  (item.price.main + item.price.fractional / 100) *
+                  item.quantity
+                ).toFixed(2)}{" "}
                 PLN
               </li>
             ))}
