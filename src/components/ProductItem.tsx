@@ -1,9 +1,9 @@
-import React from "react";
+import { ReactNode } from "react";
 import { IProduct } from "../types";
 
 interface ProductItemProps<T extends IProduct> {
   product: T;
-  renderAction: (product: T) => React.ReactNode;
+  renderAction: (product: T) => ReactNode;
 }
 
 export const ProductItem = <T extends IProduct>({

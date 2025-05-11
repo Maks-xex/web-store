@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ProductList } from "../components/ProductList";
 
 import { useCartContext } from "../context/CartContext";

@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 
 import { ProductItem } from "./ProductItem";
 
@@ -6,7 +6,7 @@ import { IProduct } from "../types";
 
 interface ProductListProps<T extends IProduct> {
   products: T[];
-  renderAction: (product: T) => React.ReactNode;
+  renderAction: (product: T) => ReactNode;
 }
 
 export const ProductList = <T extends IProduct>({

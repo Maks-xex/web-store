@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ICartItem, useCartContext } from "../context/CartContext";
 import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";

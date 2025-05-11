@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  PropsWithChildren,
-} from "react";
+import { createContext, useContext, useState, PropsWithChildren } from "react";
 import { IProduct } from "../types";
 
 export interface ICartItem extends IProduct {
