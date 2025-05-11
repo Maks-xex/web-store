@@ -27,20 +27,16 @@
       const summaryEl = document.getElementById("order-summary");
       const totalEl = document.getElementById("total");
 
-      if (order && order.items.length > 0) {
-        let total = 0;
-        order.items.forEach((item) => {
-          const price = item.price.main + item.price.fractional / 100;
-          const subtotal = price * item.quantity;
-          total += subtotal;
-          const li = document.createElement("li");
-          li.textContent = `${item.name} – ${item.quantity} x ${price.toFixed(2)} PLN = ${subtotal.toFixed(2)} PLN`;
-          summaryEl.appendChild(li);
-        });
-        totalEl.textContent = `Łączna kwota: ${total.toFixed(2)} PLN`;
-      } else {
-        summaryEl.innerHTML = "<li>Brak danych zamówienia.</li>";
-      }
+      let total = 0;
+      order.items.forEach((item) => {
+        const price = item.price;
+        const subtotal = price * item.quantity;
+        total += subtotal;
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.quantity} x ${price.toFixed(2)} PLN = ${subtotal.toFixed(2)} PLN`;
+        summaryEl.appendChild(li);
+      });
+      totalEl.textContent = `Łączna kwota: ${total.toFixed(2)} PLN`;
     </script>
   </body>
 </html>
