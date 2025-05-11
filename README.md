@@ -3,7 +3,7 @@
 ## 👤 Personal Information
 
 - **Name**: Maksym Rekunenko
-- **Tech Stack**: HTML, CSS, JavaScript (React)
+- **Tech Stack**: HTML, CSS, TypeScript (React)
 - **Location**: Wrocław, Poland
 
 ## 🌐 Live Demo
@@ -14,7 +14,7 @@
 
 - React (Create React App)
 - HTML5 & CSS3
-- JavaScript (ES6+)
+- TypeScript
 - Git & GitHub Pages
 
 ## Description
