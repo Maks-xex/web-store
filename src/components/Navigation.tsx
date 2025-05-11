@@ -6,7 +6,7 @@ export const Navigation: React.FC = () => (
     <h1 className="font-extrabold text-blue-600 drop-shadow-md shadow-blue-600/50 uppercase"></h1>
     <ul className="flex flex-row text-white mt-{10px}">
       <li className="pr-2 capitalize">
-        <Link to="/products">Products</Link>
+        <Link to="/">Products</Link>
       </li>
       <li className="pr-2 capitalize">
         <Link to="/cart">Cart</Link>
