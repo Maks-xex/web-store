@@ -1,12 +1,12 @@
 import React from "react";
-import { IProducts } from "../types";
+import { IProduct } from "../types";
 
-interface ProductItemProps<T extends IProducts> {
+interface ProductItemProps<T extends IProduct> {
   product: T;
   renderAction: (product: T) => React.ReactNode;
 }
 
-export const ProductItem = <T extends IProducts>({
+export const ProductItem = <T extends IProduct>({
   product,
   renderAction,
 }: ProductItemProps<T>) => (

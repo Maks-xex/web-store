@@ -4,16 +4,16 @@ import React, {
   useState,
   PropsWithChildren,
 } from "react";
-import { IProducts } from "../types";
+import { IProduct } from "../types";
 
-export interface ICartItem extends IProducts {
+export interface ICartItem extends IProduct {
   quantity: number;
 }
 
 interface ICartContext {
   cartItems: ICartItem[];
   total: number;
-  addToCart: (product: IProducts) => void;
+  addToCart: (product: IProduct) => void;
   removeFromCart: (id: number) => void;
   incrementQuantity: (id: number) => void;
   decrementQuantity: (id: number) => void;
@@ -24,7 +24,7 @@ const CartContext = createContext<ICartContext | null>(null);
 export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
 
-  const addToCart = (product: IProducts) => {
+  const addToCart = (product: IProduct) => {
     setCartItems((prev) => {
       const exist = prev.find((item) => item.id === product.id);
       if (exist) {
