@@ -14,8 +14,18 @@ This project is a web application built with **React** for the frontend. It incl
 
 ## Usage
 
-1. Install dependencies using the npm `install` command.
-2. Start the development server using the npm `start` command.
+1. Install dependencies using the command
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server using the command
+
+   ```bash
+   npm start
+   ```
+
 3. Access the application in your web browser at [http://localhost:3000](http://localhost:3000).
 4. Begin developing your project by editing the source files in the `src` directory.
 
