@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
-import { ICartItem, useCartContext } from "../context/CartContext";
-import { getProducts } from "../utils/getProducts";
+
+import { useCartContext } from "../context/CartContext";
+
 import { ProductList } from "../components/ProductList";
+
+import { getProducts } from "../utils/getProducts";
+
+import { ICartItem } from "../types";
 
 export const SummaryPage = () => {
   const { cartItems, total } = useCartContext();

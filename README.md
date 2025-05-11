@@ -10,7 +10,7 @@ This project is a web application built with **React** for the frontend. It incl
 
 ## Requirements
 
-- **Node.js**: Version 20.19.0
+- **Node.js**: Version 20
 
 ## Usage
 

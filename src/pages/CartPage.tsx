@@ -1,6 +1,10 @@
-import { ICartItem, useCartContext } from "../context/CartContext";
-import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";
+
+import { useCartContext } from "../context/CartContext";
+
+import { ProductList } from "../components/ProductList";
+
+import { ICartItem } from "../types";
 
 export const CartPage = () => {
   const {

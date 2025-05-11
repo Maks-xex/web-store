@@ -6,3 +6,7 @@ export interface IProduct {
     fractional: number;
   };
 }
+
+export interface ICartItem extends IProduct {
+  quantity: number;
+}
