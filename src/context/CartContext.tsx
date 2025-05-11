@@ -42,28 +42,31 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const updateCartItemQuantity = (id: number, delta: number) => {
-    const updatedCart = cartItems
-      .map((item) => {
+  const incrementQuantity = (id: number) => {
+    setCartItems((prev) =>
+      prev.map((item) => {
         if (item.id === id) {
-          const newQuantity = item.quantity + delta;
-          return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
+          return { ...item, quantity: item.quantity + 1 };
         }
         return item;
-      })
-      .filter(Boolean) as ICartItem[];
-
-    setCartItems(updatedCart);
-
-    const wasRemoved = !updatedCart.find((item) => item.id === id);
-    if (wasRemoved) removeFromCart(id);
-  };
-  const incrementQuantity = (id: number) => {
-    updateCartItemQuantity(id, 1);
+      }),
+    );
   };
 
   const decrementQuantity = (id: number) => {
-    updateCartItemQuantity(id, -1);
+    const itemToRemove = cartItems.find((item) => item.id === id);
+    if (itemToRemove && itemToRemove.quantity === 1) {
+      removeFromCart(id);
+      return;
+    }
+    setCartItems((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      }),
+    );
   };
 
   const total = cartItems.reduce(
