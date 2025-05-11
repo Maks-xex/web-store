@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useCartContext } from "../context/CartContext";
 
 export const SummaryPage = () => {
-  const { cartItems } = useCart();
+  const { cartItems } = useCartContext();
   const total = cartItems.reduce(
     (sum, item) =>
       sum + (item.price.main + item.price.fractional / 100) * item.quantity,

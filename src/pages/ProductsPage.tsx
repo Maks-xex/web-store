@@ -3,11 +3,11 @@ import React from "react";
 import { ProductList } from "../components/ProductList";
 
 import products from "../products/products.json";
-import { useCart } from "../context/CartContext";
+import { useCartContext } from "../context/CartContext";
 import { IProducts } from "../types";
 
 export const ProductsPage: React.FC = () => {
-  const { addToCart } = useCart();
+  const { addToCart } = useCartContext();
   return (
     <div className="flex justify-center">
       <ProductList<IProducts>

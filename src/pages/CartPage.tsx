@@ -1,12 +1,12 @@
 import React from "react";
 
-import { ICart, useCart } from "../context/CartContext";
+import { ICart, useCartContext } from "../context/CartContext";
 import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";
 
 export const Cart: React.FC = () => {
   const { cartItems, removeFromCart, incrementQuantity, decrementQuantity } =
-    useCart();
+    useCartContext();
 
   const total = cartItems.reduce(
     (sum, item) =>
