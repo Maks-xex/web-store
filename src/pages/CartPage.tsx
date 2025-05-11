@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ICart, useCartContext } from "../context/CartContext";
+import { ICartItem, useCartContext } from "../context/CartContext";
 import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export const Cart: React.FC = () => {
         <p>Koszyk jest pusty</p>
       ) : (
         <>
-          <ProductList<ICart>
+          <ProductList<ICartItem>
             products={cartItems}
             renderAction={(product) => (
               <>

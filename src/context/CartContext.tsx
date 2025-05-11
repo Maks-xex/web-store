@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { IProducts } from "../types";
 
-export interface ICart extends IProducts {
+export interface ICartItem extends IProducts {
   quantity: number;
 }
 
 interface CartContextType {
-  cartItems: ICart[];
+  cartItems: ICartItem[];
   total: number;
   addToCart: (product: IProducts) => void;
   removeFromCart: (id: number) => void;
@@ -17,7 +17,7 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cartItems, setCartItems] = useState<ICart[]>([]);
+  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
 
   const addToCart = (product: IProducts) => {
     setCartItems((prev) => {
@@ -46,7 +46,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }
         return item;
       })
-      .filter(Boolean) as ICart[];
+      .filter(Boolean) as ICartItem[];
 
     setCartItems(updatedCart);
 
