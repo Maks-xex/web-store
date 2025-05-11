@@ -13,6 +13,6 @@ export const ProductItem = <T extends IProducts>({
   <li className="border p-2 m-2">
     <h3>{product.name}</h3>
     <p>Cena: {`${product.price.main}.${product.price.fractional}`} PLN</p>
-    {renderAction && renderAction(product)}
+    {renderAction(product)}
   </li>
 );
