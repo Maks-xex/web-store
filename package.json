@@ -1,6 +1,6 @@
 {
   "name": "web-store",
-  "homepage": "https://maks-xex.github.io/web-store/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

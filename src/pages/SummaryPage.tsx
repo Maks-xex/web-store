@@ -9,7 +9,7 @@ export const SummaryPage = () => {
       total,
     };
     localStorage.setItem("order", JSON.stringify(orderData));
-    window.location.href = "/confirmation.html";
+    window.location.href = "confirmation.html";
   };
 
   return (
