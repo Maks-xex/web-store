@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-export const Header: React.FC = () => (
+export const Header = () => (
   <header>
     <nav className="flex justify-end w-full top-0 p-2 bg-blue-500 rounded-b shadow-md z-10">
       <h1 className="font-extrabold text-blue-600 drop-shadow-md shadow-blue-600/50 uppercase"></h1>

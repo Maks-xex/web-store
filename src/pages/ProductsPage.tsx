@@ -8,7 +8,7 @@ import { IProduct } from "../types";
 
 import products from "../products/products.json";
 
-export const ProductsPage: React.FC = () => {
+export const ProductsPage = () => {
   const { addToCart } = useCartContext();
   return (
     <div className="flex justify-center">

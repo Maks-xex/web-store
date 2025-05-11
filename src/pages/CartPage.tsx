@@ -4,7 +4,7 @@ import { ICartItem, useCartContext } from "../context/CartContext";
 import { ProductList } from "../components/ProductList";
 import { Link } from "react-router-dom";
 
-export const Cart: React.FC = () => {
+export const CartPage = () => {
   const {
     total,
     cartItems,

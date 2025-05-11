@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
 
-export const SummaryPage: React.FC = () => {
+export const SummaryPage = () => {
   const { cartItems, total } = useCartContext();
   const handleOrder = () => {
     const orderData = {

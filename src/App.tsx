@@ -8,9 +8,9 @@ import { CartProvider } from "./context/CartContext";
 
 import { ProductsPage } from "./pages/ProductsPage";
 import { SummaryPage } from "./pages/SummaryPage";
-import { Cart } from "./pages/CartPage";
+import { CartPage } from "./pages/CartPage";
 
-const Root: React.FC = () => {
+const Root = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
@@ -21,13 +21,13 @@ const Root: React.FC = () => {
   );
 };
 
-export const App: React.FC = () => {
+export const App = () => {
   return (
     <CartProvider>
       <Routes>
         <Route path="/" element={<Root />}>
           <Route index element={<ProductsPage />} />
-          <Route path="cart" element={<Cart />} />
+          <Route path="cart" element={<CartPage />} />
           <Route path="summary" element={<SummaryPage />} />
         </Route>
         <Route path="*" element={<div>404 Not Found</div>} />
